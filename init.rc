@@ -581,6 +581,11 @@ service bluetoothd_one /system/bin/bluetoothd -n
     disabled
     oneshot
 
+service hciattach /system/bin/brcm_patchram_plus --enable_hci --patchram /etc/firmware/BCM4330B1_002.001.003.0833.0845.hcd /dev/ttyHS0
+   user bluetooth
+   group bluetooth net_bt_admin
+   disabled
+
 service installd /system/bin/installd
     class main
     socket installd stream 600 system system
